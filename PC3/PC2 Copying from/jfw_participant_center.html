@@ -1,0 +1,130 @@
+<script>
+  window.participant_center_app_info = {
+    PAGENAMES: {
+      PERSONAL_HERO: 'reus_jfw_participant_center_personal_hero',
+      PERSONAL_NEXT_STEPS: 'reus_jfw_participant_center_personal_next_steps',
+      TEAM_HERO: 'reus_jfw_participant_center_team_hero',
+      TEAM_NEXT_STEPS: 'reus_jfw_participant_center_team_next_steps',
+      EVENT_INFO: 'reus_jfw_participant_center_event_info',
+      FUNDRAISING_TOOLS: 'reus_jfw_participant_center_fundraising_tools'
+    },
+    PARTICIPANT_MILESTONES: [
+      {
+        name: '$500 Mark',
+        breakNameLine: true,
+        excludeParticipationTypes: [
+          'Youth',
+          'Virtual Walker Youth'
+        ],
+        amount: 50000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-500.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-500-achieved-sm.png'
+      },
+      {
+        name: '$300 Mark',
+        breakNameLine: true,
+        includeParticipationTypes: [
+          'Youth',
+          'Virtual Walker Youth'
+        ],
+        amount: 30000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-500.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-500-achieved-sm.png'
+      },
+      {
+        name: 'Star Pacesetter',
+        breakNameLine: true,
+        amount: 100000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-1000.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-one-star-achieved-sm.png'
+      },
+      {
+        name: 'Two-Star Pacesetter',
+        breakNameLine: true,
+        description: 'Pacesetters are an elite group of top fundraisers who raise $2,000 or more.',
+        amount: 200000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-one-star.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-two-star-achieved-sm.png'
+      },
+      {
+        name: 'Three-Star Pacesetter',
+        description: 'Raise $3,000',
+        amount: 300000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-two-star.png',
+        iconLargeWide: true,
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-three-star-achieved-sm.png'
+      },
+      {
+        name: 'Four-Star Pacesetter',
+        description: 'Raise $4,000',
+        amount: 400000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-three-star.png',
+        iconLargeWide: true,
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-four-star-achieved-sm.png'
+      },
+      {
+        name: 'Five-Star Pacesetter',
+        description: 'Raise $5,000',
+        amount: 500000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-four-star.png',
+        iconLargeAchieved: '../images/content/pagebuilder/jfw-team-milestone-five-star-achieved.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-participant-milestone-five-star-achieved-sm.png'
+      }
+    ],
+    TEAM_MILESTONES: [
+      {
+        name: '$5,000 Mark',
+        breakNameLine: true,
+        amount: 500000,
+        iconLarge: '../images/content/pagebuilder/jfw-team-milestone-5000.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-team-milestone-5000-achieved-sm.png'
+      },
+      {
+        name: 'Star Pacesetter Team',
+        breakNameLine: true,
+        description: 'Pacesetters are an elite group of top fundraisers who raise $10,000 or more.',
+        amount: 1000000,
+        iconLarge: '../images/content/pagebuilder/jfw-participant-milestone-1000.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-team-milestone-one-star-achieved-sm.png'
+      },
+      {
+        name: 'Two-Star Pacesetter Team',
+        description: 'Raise $20,000',
+        amount: 2000000,
+        iconLarge: '../images/content/pagebuilder/jfw-team-milestone-one-star.png',
+        iconLargeWide: true,
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-team-milestone-two-star-achieved-sm.png'
+      },
+      {
+        name: 'Three-Star Pacesetter Team',
+        description: 'Raise $30,000',
+        amount: 3000000,
+        iconLarge: '../images/content/pagebuilder/jfw-team-milestone-two-star.png',
+        iconLargeWide: true,
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-team-milestone-three-star-achieved-sm.png'
+      },
+      {
+        name: 'Four-Star Pacesetter Team',
+        description: 'Raise $40,000',
+        amount: 4000000,
+        iconLarge: '../images/content/pagebuilder/jfw-team-milestone-three-star.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-team-milestone-four-star-achieved-sm.png'
+      },
+      {
+        name: 'Five-Star Pacesetter Team',
+        description: 'Raise $50,000',
+        amount: 5000000,
+        iconLarge: '../images/content/pagebuilder/jfw-team-milestone-four-star.png',
+        iconSmallAchieved: '../images/content/pagebuilder/jfw-team-milestone-five-star-achieved-sm.png',
+        iconLargeAchieved: '../images/content/pagebuilder/jfw-team-milestone-five-star-achieved.png'
+      }
+    ],
+    ROUTE_SELECTED: '[[?xx::x[[S1:cons_id]]x::::[[E48:[[S334:fr_id]]-[[S1:cons_id]]:question:Choose Your Distance]]]]'
+  };
+</script>
+[[E84:angular-teamraiser-participant-center/dist/html/embed.html]]
+
+<!-- Facebook Connect -->
+<script src="//connect.facebook.net/en_US/sdk.js"></script>
+[[E51:reus_teamraiser_facebook_fundraiser]]
+[[E51:reus_teamraiser_personallink_copy]]

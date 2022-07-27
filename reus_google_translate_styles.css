@@ -1,0 +1,102 @@
+/* Google Translate Styles */
+div.donation-level-container > div > div > label > div > font {
+  vertical-align: initial !important;
+}
+
+.header-container .skiptranslate {
+  text-transform: none;
+}
+#google_translate_element {
+  display: inline-block;
+}
+#\:0\.targetLanguage {
+  display: inline-block;
+  margin-right: 5px;
+}
+.headerRight .container {
+  float: none !important;
+}
+.goog-te-combo {
+  padding-left: 0px;
+  height: auto;
+  line-height: inherit;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+  background-size: contain;
+}
+.google-translate-container a {
+    vertical-align: middle;
+    display: inline-block;
+}
+.google-translate-container .google-inner {
+    position: absolute;
+    right: 17em;
+    z-index: 99;
+    margin-top: 5px;
+    max-width: 420px;
+}
+[class^="custom-"], [class*=" custom-"] {
+  font-family: 'dana-farber-icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.global-nav-container .google-translate-wrapper a i {
+    font-size: 19px;
+    line-height: 19px;
+}
+.custom-icon-exclamation:before {
+  content: "\e90b";
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+.google-translate-container .google-inner .collapse, .global-nav-container .google-translate-wrapper .google-inner .collapsing {
+    height: 100% !important;
+}
+.google-translate-container .google-inner .collapse p, .global-nav-container .google-translate-wrapper .google-inner .collapsing p {
+    background-color: #eeeeee;
+    color: #003354;
+    text-transform: none;
+    font-size: 12px;
+    padding: 20px;
+    word-wrap: break-word;
+    margin: 0;
+}
+.google-translate-container .google-inner .collapse.in p:before, .global-nav-container .google-translate-wrapper .google-inner .collapsing.in p:before {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #eeeeee;
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+.headerRight ul {
+  margin: 0 !important;
+}
+
+@media screen and (max-width: 600px) {
+  .headerRight {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+/* End Google Translate Styles */

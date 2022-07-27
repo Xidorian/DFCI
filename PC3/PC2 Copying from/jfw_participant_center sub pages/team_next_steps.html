@@ -1,0 +1,139 @@
+<div class="what-next-list">
+  <ul class="list-unstyled">
+    <li>
+      <div class="clearfix">
+        <div class="what-next-icon">
+          <img src="../images/content/pagebuilder/jfw-what-next-recruit.png" alt="">
+        </div>
+        <div class="what-next-text">
+          <p>
+            <strong>Recruit new members</strong> to join your team. Reach out to friends, family, and coworkers.
+          </p>
+          <div class="what-next-btns">
+            <a class="btn btn-primary-outline" ng-href="{{baseUrl}}#/email/compose">
+              Recruit Members
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li ng-if="participantRegistration.aTeamCaptain == 'true'">
+      <div class="clearfix">
+        <div class="what-next-icon">
+          <img src="../images/content/pagebuilder/jfw-what-next-personalize.png" alt="">
+        </div>
+        <div class="what-next-text">
+          <div ng-if="!hasUpdatedTeamPage">
+            <p>
+              <strong>Personalize your team fundraising page!</strong> Upload a photo and share your story with your supporters.
+            </p>
+          </div>
+          <div ng-if="hasUpdatedTeamPage">
+            <p>
+              <strong>Your team fundraising page is personalized!</strong> You can update it at any time.
+            </p>
+          </div>
+          <div class="what-next-btns">
+            <a class="btn btn-primary-outline" ng-href="TR?fr_id={{frId}}&amp;pg=team&amp;team_id={{participantRegistration.teamId}}">
+              View and Edit Page
+            </a>
+            <a class="btn btn-primary-outline" ng-click="editPageUrl('Team')">
+              Create Custom URL
+            </a>
+          </div>
+          <p>
+            <small>
+              Your Team Page URL:<br>
+              <span ng-if="teamShortcut">
+                <a ng-href="{{teamShortcut.url || teamShortcut.defaultUrl}}">{{teamShortcut.url || teamShortcut.defaultUrl}}</a>
+              </span>
+              <span ng-if="!teamShortcut">
+                <a ng-href="{{participant.teamPageUrl}}">{{participant.teamPageUrl}}</a>
+              </span>
+            </small>
+          </p>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="clearfix">
+        <div class="what-next-icon">
+          <img src="../images/content/pagebuilder/jfw-what-next-gift.png" alt="">
+        </div>
+        <div class="what-next-text">
+          <p>
+            <strong>Make a gift to your team!</strong> Take the first step in reaching your team's fundraising goal.
+          </p>
+          <div class="what-next-btns">
+            <a class="btn btn-primary-outline" ng-href="Donation2?df_id={{donationFormId}}&amp;FR_ID={{frId}}&amp;PROXY_TYPE=22&amp;PROXY_ID={{participantRegistration.teamId}}" target="_blank">
+              Gift to Your Team
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+
+      <!-- TODO: uncomment this new app download section when app is ready  -->
+      <!-- <li>
+        <div class="clearfix">
+          <div class="what-next-icon">
+            <img src="../images/content/pagebuilder/jfw-what-next-apps.png" alt="">
+          </div>
+          <div class="what-next-text">
+            <p>
+              <strong>Download the Participant Center mobile app</strong> to update your story, share on social, and ask for donations on the go.
+            </p>
+            <div class="what-next-btns">
+              <a class="mobile-app-btn" href="https://apps.apple.com/app/id1555622794" target="_blank">
+                <img src="../images/content/pagebuilder/pc-mobile-app-ios.png" alt="">
+              </a>
+              <a class="mobile-app-btn" href="https://play.google.com/store/apps/details?id=org.danafarber.jffundraisingapp" target="_blank">
+                <img src="../images/content/pagebuilder/pc-mobile-app-google.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </li> -->
+
+    <li ng-if="participantRegistration.aTeamCaptain == 'true'">
+      <div class="clearfix">
+        <div class="what-next-icon">
+          <img src="../images/content/pagebuilder/jfw-what-next-email.png" alt="">
+        </div>
+        <div class="what-next-text">
+          <p>
+            <strong>Send emails</strong> to your network of family and friends! Tell them why you're participating in the Jimmy Fund Walk.
+          </p>
+          <div class="what-next-btns">
+            <a class="btn btn-primary-outline" ng-href="{{baseUrl}}#/email/compose">
+              Send Emails
+            </a>
+            <a class="btn btn-primary-outline" ng-href="{{baseUrl}}#/email/contacts/email_rpt_show_all/list">
+              Import Contacts
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="clearfix">
+        <div class="what-next-icon">
+          <img src="../images/content/pagebuilder/jfw-what-next-share.png" alt="">
+        </div>
+        <div class="what-next-text">
+          <p>
+            <strong>Share your team page</strong> and use your social network to help fundraise!
+          </p>
+          <div class="what-next-btns">
+            <a class="addthis_button_facebook" ng-click="delegatedAddThis('.js--team-social-share', 'facebook')">
+              <i class="fa fa-facebook"></i>
+            </a>
+            <a class="addthis_button_twitter" ng-click="delegatedAddThis('.js--team-social-share', 'twitter')">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

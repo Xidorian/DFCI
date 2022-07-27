@@ -1,0 +1,144 @@
+[[S51:reus_jfw_default_header_css]]
+
+<div id="fixed_header">
+  <div id="header" class="container">
+    <div class="header_logos">
+      <a href="http://dfcilot.convio.net/site/TR?fr_id=[[S80:trID]]&pg=entry" class="header_jfw_logo" title="Boston Marathon Jimmy Fund Walk presented by Hyundai">
+        <img src="../images/content/pagebuilder/jfw_logo_header.png" alt="Boston Marathon Jimmy Fund Walk presented by Hyundai logo" title="Boston Marathon Jimmy Fund Walk presented by Hyundai" class="non-retina" />
+        <img src="../images/content/pagebuilder/jfw_logo_header_2x.png" alt="Boston Marathon Jimmy Fund Walk presented by Hyundai logo" title="Boston Marathon Jimmy Fund Walk presented by Hyundai" width="160" class="retina" />
+      </a>
+      <a href="http://www.dana-farber.org/" class="header_dfci_logo" title="Dana-Farber Cancer Institute" target="_blank">
+        <img src="../images/content/pagebuilder/dfcilot-header-logo-update.png" alt="Dana-Farber Cancer Institute logo" title="Dana-Farber Cancer Institute" class="non-retina">
+        <img src="../images/content/pagebuilder/dfcilot-header-logo-update-2X.png" alt="Dana-Farber Cancer Institute logo" title="Dana-Farber Cancer Institute" style="height:26px;" class="retina">
+      </a>
+      <a href="http://www.jimmyfund.org" class="header_jf_logo" title="The Jimmy Fund" target="_blank">
+        <img src="../images/content/pagebuilder/jf-header-logo-update.png" alt="The Jimmy Fund logo" title="The Jimmy Fund" class="non-retina">
+        <img src="../images/content/pagebuilder/jf-header-logo-update-2X.png" alt="The Jimmy Fund logo" title="The Jimmy Fund" style="height:26px;" class="retina">
+      </a>
+    </div>
+    <!--/.header_logos-->
+
+
+    <div class="google-translate-container">
+      <div id="google_translate_element"></div>
+      <a role="button" data-toggle="collapse" href="#googleExplanation" aria-expanded="false" aria-controls="googleExplanation">
+        <i class="custom-icon-exclamation" aria-hidden="true"></i>
+        <span class="sr-only">Read disclaimer about translations</span>
+      </a>
+      <div class="google-inner">
+        <div class="collapse" id="googleExplanation">
+          <p style="font-family: &quot;Fira Sans&quot;, sans-serif;">Please note that some translations using Google Translate may not be accurately represented and downloaded documents cannot be translated. Dana-Farber and the Jimmy Fund assume no liability for inaccuracies that may result from using this third-party tool, which is for website translation and not clinical interactions.</p>
+        </div>
+      </div>
+    </div>
+    <!-- /google_translate_element -->
+
+
+    <div class="header_util_nav">
+      <div style="display: none;">x[[S1:cons_id]]x</div>
+      <div style="display: none;">x[[E48:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]-[[S1:cons_id]]:part-type-id]]x</div>
+      <div style="display: none;">[[?xx::x[[S1:user_name]]x::FALSE::TRUE]][[?xx::x[[E48:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]-[[S1:cons_id]]:part-type-id]]x::FALSE::TRUE]]</div>
+      [[?x1660x::x[[S334:fr_id]]x::
+      <a href="PageServer?pagename=jfw_donate&fr_id=[[S80:trID]]">DONATE</a>
+      ::<a href="PageServer?pagename=jfw_donate&fr_id=[[S80:trID]]" class="button red">DONATE</a>]]
+      [[?[[?xx::x[[S1:user_name]]x::FALSE::TRUE]][[?xx::x[[E48:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]-[[S1:cons_id]]:part-type-id]]x::FALSE::TRUE]]::TRUEFALSE::
+      <!--logged in, not registered-->
+      [[?[[?x27x::x[[S4]]x::TRUE::::]][[?xjfw_loginxjfw_registerx::x[[S334:pagename]]x::TRUE::]]::TRUE:: ::
+      <!-- add TR ID to list to show Register button - put x's on both sides of ID, e.g. x9999x8888x7777x-->
+      [[?x1660x::x[[S334:fr_id]]x::
+      <a href="PageServer?pagename=jfw_register&fr_id=[[S80:trID]]" class="button red">REGISTER</a>
+      ::]]
+      ]]<a href="javascript:void(0)" id="header_logged_in_toggle"></a>::[[?FALSEFALSETRUE::[[?xx::x[[S1:user_name]]x::FALSE::TRUE]][[?xx::x[[E48:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]-[[S1:cons_id]]:part-type-id]]x::FALSE::TRUE]]::
+      <!-- not logged in, not registered for this event-->
+      [[?[[?x27x::x[[S4]]x::TRUE::::]][[?xjfw_loginxjfw_registerx::x[[S334:pagename]]x::TRUE::]]::TRUE:: ::
+      <!-- add TR ID to list to show Register button - put x's on both sides of ID, e.g. x9999x8888x7777x-->
+      [[?x1660x::x[[S334:fr_id]]x::
+      <a href="PageServer?pagename=jfw_register&fr_id=[[S80:trID]]" class="button red">REGISTER</a>
+      ::]]
+      ]]::
+      <!-- registered for this event-->
+      <a href="javascript:void(0)" id="header_logged_in_toggle"></a>]]]][[?xx::x[[S1:user_name]]x::<a href="PageServer?pagename=jfw_login&amp;fr_id=[[S80:trID]]&amp;NEXTURL=[[T1:https://dfcilot.convio.net/site/TRC/JimmyFundWalk/JimmyFundWalk?pg=center&amp;fr_id=[[S80:trID]]]]" class="hidden-phone">LOGIN</a>::]]
+    </div>
+    <!--/.header_util_nav-->
+    <a href="javascript:void(0)" id="header_search_toggle" class="fa fa-search"></a>
+    <a href="javascript:void(0)" id="header_menu_toggle"></a>
+  </div>
+  <!--/#header.container-->
+  <div id="header_searchandmenu_container" class="container">
+    <div id="header_searchandmenu">
+      <div id="header_search_container">
+        <!-- <form id="header_search_form" action="PageServer">
+        <input type="hidden" name="pagename" value="jfw_query" />
+        <input type="hidden" name="fr_id" value="[[S80:trID]]" />
+        <input type="text" placeholder="Search" name="q" />
+        <button type="submit" class="search button">
+          <span class="fa fa-search"></span>
+        </button>
+      </form>
+      <p>
+        <a href="https://dfcilot.convio.net/site/PageServer?pagename=jfw_donate&fr_id=[[S80:trID]]">Search</a> for a participant or team
+      </p> -->
+        <a href="https://dfcilot.convio.net/site/PageServer?pagename=jfw_donate&fr_id=[[S80:trID]]">
+          <span id="header_search_menu_link" class="fa fa-search"></span>
+        </a>
+      </div>
+      <!--/#header_search_container-->
+      <div class="clearfix"></div>
+
+      <div id="header_menu_container">
+
+        <div class="half-width">
+          <div id="header_get_involved" class="header_nav_column half-width">
+            [[?xx::x[[S1:user_name]]x::<a href="PageServer?pagename=jfw_login&amp;fr_id=[[S80:trID]]&amp;NEXTURL=[[T1:https://dfcilot.convio.net/site/TRC/JimmyFundWalk/JimmyFundWalk?pg=center&amp;fr_id=[[S80:trID]]]]" class="phone-only">LOG IN</a>::]]
+            <h5>GET INVOLVED</h5>
+            [[?x27x::x[[S4]]x:: ::
+            <!-- add TR ID to list to show Register button - put x's on both sides of ID, e.g. x9999x8888x7777x-->
+            [[?x1660x::x[[S334:fr_id]]x::
+            <a href="PageServer?pagename=jfw_register&fr_id=[[S80:trID]]">Register</a>
+            ::]]
+            ]]
+            <a href="PageServer?pagename=jfw_donate&fr_id=[[S80:trID]]">Support a Participant</a>
+            <a href="PageServer?pagename=jfw_volunteer_cancer&fr_id=[[S80:trID]]">Volunteer</a>
+          </div>
+          <!--/.header_nav_column-->
+          <div id="header_fundraise" class="header_nav_column half-width">
+            <h5>FUNDRAISE</h5>
+            <a href="PageServer?pagename=jfw_pacesetter_cancer&fr_id=[[S80:trID]]">Become a Pacesetter</a>
+            <a href="PageServer?pagename=jfw_planafundraiser_cancer&fr_id=[[S80:trID]]">Plan a Fundraiser</a>
+            <a href="PageServer?pagename=jfw_fundraisingtips_cancer&fr_id=[[S80:trID]]">Fundraising Tips and Tools</a>
+          </div>
+          <!--/.header_nav_column-->
+          <div class="clearfix"></div>
+        </div>
+        <!--/.half-width-->
+
+        <div class="half-width">
+          <div id="header_walk_activities" class="header_nav_column half-width">
+            <h5>WALK ACTIVITIES</h5>
+            <!-- <a href="PageServer?pagename=jfw_walkweekend_cancer&fr_id=[[S80:trID]]">Walk Weekend Experience</a> -->
+            <a href="PageServer?pagename=jfw_logistics_cancer&fr_id=[[S80:trID]]">Walk Your Way Info</a>
+          </div>
+          <div id="header_learn_more" class="header_nav_column half-width">
+            <h5>LEARN MORE</h5>
+            <a href="PageServer?pagename=jfw_aboutteams_cancer&fr_id=[[S80:trID]]">About Teams</a>
+            <a href="PageServer?pagename=jfw_sponsors_cancer&fr_id=[[S80:trID]]">Sponsors</a>
+            <a href="PageServer?pagename=jfw_patientpartnerprogram_cancer&fr_id=[[S80:trID]]">Patient Partner Program</a>
+            <a href="PageServer?pagename=jfw_faqs_cancer&fr_id=[[S80:trID]]">FAQs</a>
+            <!-- </div> -->
+          </div>
+          <!--/.header_nav_column-->
+
+          <div class="clearfix"></div>
+        </div>
+        <!--/.half-width-->
+
+        <div class="clearfix"></div>
+      </div>
+      <!--/#header_menu_container-->
+    </div>
+    <!--/#header_searchandmenu-->
+    [[S51:reus_universal_avatar_menu]]
+  </div>
+  <!--/#header_searchandmenu_container.container-->
+</div>
+<!--/#fixed_header-->

@@ -1,0 +1,13 @@
+<convio:choose xmlns="http://www.convio.com">
+  <convio:when title="Member of Group:  group cond test" test="eq" selected="selected">
+    <convio:op><convio:session name="45" param="75714:IF_KNOWN" ></convio:session></convio:op>
+    <convio:op>TRUE</convio:op>
+    <convio:then>[[S51:groupcondtest]]</convio:then>
+  </convio:when>
+  <convio:when title="Not Member of Group: group cond test" test="eq">
+    <convio:op><convio:session name="45" param="75714:IF_KNOWN" ></convio:session></convio:op>
+    <convio:op>FALSE</convio:op>
+    <convio:then></convio:then>
+  </convio:when>
+  <convio:otherwise title="Unknown"></convio:otherwise>
+</convio:choose>

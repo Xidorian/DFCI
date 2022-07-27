@@ -1,0 +1,170 @@
+<div class="wrapper">
+  [[?xTRUEx::x[[E151:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_header]]x::
+    <!-- event-specific reusable exists -->
+    [[E51:reus_jfw_[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_header]]
+    ::
+    <!-- no event-specific reusable exists, use default -->
+    [[S51:reus_jfw_default_header]]
+  ]]
+
+  [[?xentryx::x[[S334:pg]]x::
+    <!-- Begin Greeting Page -->
+      [[?xTRUEx::x[[E151:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_greeting_page]]x::
+      <!-- event-specific reusable exists -->
+      [[E51:reus_jfw_[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_greeting_page]]
+      ::
+      <!-- no event-specific reusable exists, use default -->
+      [[S51:reus_jfw_default_greeting_page]]
+    ]]
+    <!-- End Greeting Page -->
+  ::]]
+
+  [[?xentryx::x[[S334:pg]]x::::
+  [[?x27x::x[[S4]]x::
+  <div class="reg_pages container">
+    <h1>Register</h1>
+    ::]]
+    [[?x81x82x83x85x10x::x[[S4]]x::<div class="reg_pages container [[S4]]">::]]
+      [[?[[S8]]::page_not_found::<div class="reg_pages container">::]]
+        [[S63:3]]
+        [[?x27x::x[[S4]]x::
+      </div>
+      ::]]
+      [[?x81x82x83x85x10x::x[[S4]]x::</div">::]]
+      [[?[[S8]]::page_not_found::</div>::]]
+    ]]
+
+    <!-- contact reusables? -->
+
+    [[?xTRUEx::x[[E151:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_footer]]x::
+    <!-- event-specific reusable exists -->
+    [[E51:reus_jfw_[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_footer]]
+    ::
+    <!-- no event-specific reusable exists, use default -->
+    [[S51:reus_jfw_default_footer]]
+    ]]
+  </div>
+  <!--/.wrapper-->
+
+  <script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a05206950568998&amp;async=1"></script>
+  <script>
+    var addthis_config = {
+      data_ga_property: '[[S0:GOOGLE_ANALYTICS_ACCOUNT]]'
+    };
+    addthis.init();
+  </script>
+
+  [[?xpersonalx::x[[S334:pg]]x::
+  <script>
+    var addthis_share = addthis_share || {}
+    addthis_share = {
+      passthrough: {
+        twitter: {
+          text: "Join me to help raise critical funds for Dana-Farber patients at the #JimmyFundWalk: Your Way.",
+          url: "http://dfci.convio.net/site/TR?fr_id=[[S80:trID]]&amp;pg=personal&amp;px=[[S334:px]]",
+          hashtags: "JimmyFundWalk"
+        }
+      }
+    }
+
+  </script>
+  ::]]
+
+  [[?xteamx::x[[S334:pg]]x::
+  <script>
+    var addthis_share = addthis_share || {}
+    addthis_share = {
+      passthrough: {
+        twitter: {
+          text: "Join me to help raise critical funds for Dana-Farber patients at the #JimmyFundWalk: Your Way.",
+          url: "http://dfci.convio.net/site/TR?fr_id=[[S80:trID]]&amp;pg=team&amp;team_id=[[S334:px]]",
+          hashtags: "JimmyFundWalk"
+        }
+      }
+    }
+
+  </script>
+  ::]]
+
+  [[?xcompanyx::x[[S334:pg]]x::
+  <script>
+    var addthis_share = addthis_share || {}
+    addthis_share = {
+      passthrough: {
+        twitter: {
+          text: "Join me to help raise critical funds for Dana-Farber patients at the #JimmyFundWalk: Your Way.",
+          url: "http://dfci.convio.net/site/TR?fr_id=[[S80:trID]]&amp;pg=company&amp;company_id=[[S334:company_id]]",
+          hashtags: "JimmyFundWalk"
+        }
+      }
+    }
+
+  </script>
+  ::]]
+
+  [[?[[S8]]::donation=completed::
+  <script>
+    var addthis_share = addthis_share || {}
+    addthis_share = {
+      passthrough: {
+        twitter: {
+          text: "Join me to help raise critical funds for Dana-Farber patients at the #JimmyFundWalk: Your Way.",
+          url: "http://dfci.convio.net/site/TR?fr_id=[[S80:trID]]&amp;pg=entry"
+        }
+      }
+    }
+
+  </script>
+  ::]]
+
+  [[?xjfw_participant_centerx::x[[S334:pagename]]x::
+    <script src="//cdnjs.cloudflare.com/ajax/libs/circles/0.0.6/circles[[?xtruex::x[[S80:debug]]x::::.min]].js"></script>
+    [[E84:angular-teamraiser-participant-center/dist/html/body.html]]
+  ::]]
+
+  [[?xjfw_participant_center_facebookx::x[[S334:pagename]]x::
+    <script src="//cdnjs.cloudflare.com/ajax/libs/circles/0.0.6/circles[[?xtruex::x[[S80:debug]]x::::.min]].js"></script>
+    [[E84:angular-teamraiser-participant-center/dist/html/body.html]]
+  ::]]
+
+  [[?xx::x[[S1:cons_id]]x::::
+  <!-- logged in -->
+  [[?
+    [[?xpersonalx[[S1:cons_id]]x::x[[S334:pg]]x[[S334:px]]x::T::]]
+    [[?xteamx[[E48:[[S334:fr_id]]-[[S1:cons_id]]:team-id]]xTRUEx::x[[S334:pg]]x[[S334:team_id]]x[[E48:[[S334:fr_id]]-[[S1:cons_id]]:if-is-captain]]x::T::]]
+    ::T::
+    <!-- viewing own page -->
+    [[E84:teamraiser-inline-page-edit/dist/html/embed.html]]
+    [[E84:teamraiser-inline-page-edit/dist/html/body.html]]
+    ::]]
+  ]]
+
+  [[?x27x::x[[S4]]x::
+    [[S51:reus_jfw_default_reg_tjoin]]
+    [[S51:reus_jfw_default_reg_ptype]]
+    [[S51:reus_jfw_default_reg_regsummary]]
+    [[S51:reus_jfw_default_reg_paymentform]]
+  ::]]
+
+  [[?xrthanksx::x[[S334:pg]]x::
+    [[S51:reus_tr_registration_redirect]]
+  ::]]
+
+
+  <!-- chat code - START -->
+    [[?xjfw_patientpartnerprogramxjfw_volunteerxjfw_planafundraiserx::x[[S334:pagename]]x::::
+    [[S51:reus_SnapEngage]]
+    <!-- <script>
+    jQuery(document).ready(function($){
+    $('#footer_chatshare').css('bottom','55px');
+
+    $('#footer_contact a:contains("JimmyFundWalk@dfci.harvard.edu")').html('<a class="need-help" href="#">via chat or email');
+    $('.need-help').click(function(e){
+        e.preventDefault();
+        var $iframe = $('#iframe-designstudio-button').contents();
+        $('#iframe-button-container', $iframe).trigger('click');
+    });
+    });
+    </script> -->
+  ]]
+  <!-- chat code - END -->

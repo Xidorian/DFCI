@@ -1,0 +1,215 @@
+<div class="what-next-list">
+  <ul class="list-unstyled">
+      <li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/jfw-what-next-personalize.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <div ng-if="!hasUpdatedPage">
+                      <p>
+                          <strong>Personalize your fundraising page!</strong> Upload a photo and share your story with your supporters.
+                      </p>
+                  </div>
+                  <div ng-if="hasUpdatedPage">
+                      <p>
+                          <strong>Your fundraising page is personalized!</strong> You can update it at any time.
+                      </p>
+                  </div>
+                  <div class="what-next-btns">
+                      <a style="margin:5px" class="btn btn-primary-outline" target="_blank" ng-href="TR?fr_id={{frId}}&amp;pg=personal&amp;px={{consId}}" >View and Edit Page</a>
+                      <a ng-if="!participantShortcut" style="margin:5px" class="btn btn-primary-outline" ng-click="editPageUrl('Participant')">Create Custom URL</a>
+                      <a ng-if="participantShortcut" style="margin:5px" class="btn btn-primary-outline" ng-click="editPageUrl('Participant')">Edit URL</a>
+                  </div>
+                  <p>
+                      <small>
+            Your Page URL:<br>
+            <span ng-if="participantShortcut">
+              <a ng-href="{{participantShortcut.url || participantShortcut.defaultUrl}}">{{participantShortcut.url || participantShortcut.defaultUrl}}</a>
+            </span>
+            <span ng-if="!participantShortcut">
+              <a ng-href="{{participant.personalPageUrl}}">{{participant.personalPageUrl}}</a>
+            </span>
+          </small>
+                  </p>
+              </div>
+          </div>
+      </li>
+    <!-- TODO: comment old app download section when new app is ready; see below for new app download section   -->
+    <li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/jfw-what-next-apps.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <p>
+                      <strong>Download the Participant Center mobile app</strong> to update your story, share on social, and ask for donations on the go.
+                  </p>
+                  <div class="what-next-btns">
+                      <a class="mobile-app-btn" href="https://apps.apple.com/app/id1555622794" target="_blank">
+            <img src="../images/content/pagebuilder/pc-mobile-app-ios.png" alt="">
+          </a>
+                      <a class="mobile-app-btn" href="https://play.google.com/store/apps/details?id=org.danafarber.jffundraisingapp" target="_blank">
+            <img src="../images/content/pagebuilder/pc-mobile-app-google.png" alt="">
+          </a>
+                  </div>
+              </div>
+          </div>
+      </li>
+<li>
+    <div class="clearfix">
+      <div class="what-next-icon">
+        <img src="../images/content/pagebuilder/Walk_NextStepsIcon_FBFundraiser.png" alt="">
+      </div>
+
+
+      <div class="what-next-text facebookconnect facebookconnect-create">
+        <p><strong>Start your Facebook Fundraiser today!</strong> Use the button below to get started.</p>
+        <div class="what-next-btns">
+          <a style="margin:5px" class="btn btn-primary-outline js-facebookFundraiser" ng-href="#">
+        start fundraiser
+          </a>
+<p style="font-size:12px">Once started, your fundraiser link will appear here.</p>
+        </div>
+      </div>
+      <div class="what-next-text facebookconnect facebookconnect-view" style="display:none">
+        <p><strong>Thank you</strong> for starting your Facebook Fundraiser!</p>
+        <div class="what-next-btns">
+          <p><small>
+            Access Your Facebook Fundraiser:<br>
+            <span ng-if="participantShortcut">
+              <a href="#" class="js-facebookFundraiser-view" target="_blank"></a>
+            </span>
+          </small></p>
+        </div>
+      </div>
+    </div>
+  </li>
+      <li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/jfw-what-next-gift.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <div ng-if="participantRegistration.selfDonor != 'true'">
+                      <p>
+                          <strong>Make a gift to your walk!</strong> Take the first step in reaching your fundraising goal.
+                      </p>
+                  </div>
+                  <div ng-if="participantRegistration.selfDonor == 'true'">
+                      <p>
+                          <strong>Thank you for making a gift</strong> and inspiring others to do the same.
+                      </p>
+                  </div>
+                  <div class="what-next-btns">
+                      <a class="btn btn-primary-outline" ng-href="Donation2?df_id={{donationFormId}}&amp;FR_ID={{frId}}&amp;PROXY_TYPE=20&amp;PROXY_ID={{consId}}" target="_blank">
+            Give to Your Walk
+          </a>
+                  </div>
+              </div>
+          </div>
+      </li>
+
+      <!-- TODO: uncomment this new app download section when app is ready  -->
+      <!-- <li>
+        <div class="clearfix">
+          <div class="what-next-icon">
+            <img src="../images/content/pagebuilder/jfw-what-next-apps.png" alt="">
+          </div>
+          <div class="what-next-text">
+            <p>
+              <strong>Download the Participant Center mobile app</strong> to update your story, share on social, and ask for donations on the go.
+            </p>
+            <div class="what-next-btns">
+              <a class="mobile-app-btn" href="https://apps.apple.com/app/id1555622794" target="_blank">
+                <img src="../images/content/pagebuilder/pc-mobile-app-ios.png" alt="">
+              </a>
+              <a class="mobile-app-btn" href="https://play.google.com/store/apps/details?id=org.danafarber.jffundraisingapp" target="_blank">
+                <img src="../images/content/pagebuilder/pc-mobile-app-google.png" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+      </li> -->
+
+      <li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/jfw-what-next-email.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <p>
+                      <strong>Send emails</strong> to your network of family and friends! Tell them why you're participating in the Jimmy Fund Walk.
+                  </p>
+                  <div class="what-next-btns">
+                      <a style="margin:5px" class="btn btn-primary-outline" ng-href="{{baseUrl}}#/email/compose">
+            Send Emails
+          </a>
+                      <a style="margin:5px" class="btn btn-primary-outline" ng-href="{{baseUrl}}#/email/contacts/email_rpt_show_all/list">
+            Import Contacts
+          </a>
+                  </div>
+              </div>
+          </div>
+      </li>
+      <li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/jfw-what-next-share.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <p>
+                      <strong>Share your page</strong> and use your social network to help fundraise!
+                  </p>
+                  <div class="what-next-btns">
+                      <a class="addthis_button_facebook" ng-click="delegatedAddThis('.js--personal-social-share', 'facebook')">
+            <i class="fa fa-facebook"></i>
+          </a>
+                      <a class="addthis_button_twitter" ng-click="delegatedAddThis('.js--personal-social-share', 'twitter')">
+            <i class="fa fa-twitter"></i>
+          </a>
+                  </div>
+              </div>
+          </div>
+      </li>
+      <!--li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/OMIS161412_Walk_Participant_Center_Photos_FBApp_icon.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <p>
+                      <strong>Fundraise on Facebook using our custom app.</strong> Request gifts from family and friends through easy, automated posts.
+                  </p>
+                  <div class="what-next-btns" ng-if="[[S1:cons_id]] != null">
+                      <a href="https://apps.facebook.com/bf-jimmywalk/add/user/[[S1:cons_id]]/[[S42:0:fr-id]]/SOURCE" target="_blank">
+            <img src="../images/content/pagebuilder/fb_app_button.png" alt=""></i>
+          </a>
+                  </div>
+                  <div class="what-next-btns" ng-if="[[S1:cons_id]] == null">
+                      <a href="https://apps.facebook.com/bf-jimmywalk/" target="_blank">
+            <img src="../images/content/pagebuilder/fb_app_button.png" alt=""></i>
+          </a>
+                  </div>
+              </div>
+          </div>
+      </li-->
+      <li>
+          <div class="clearfix">
+              <div class="what-next-icon">
+                  <img src="../images/content/pagebuilder/jfw-what-next-profile.png" alt="">
+              </div>
+              <div class="what-next-text">
+                  <p>
+                      <strong>Update your profile!</strong> Edit your password, adjust your personal information, and more.
+                  </p>
+                  <div class="what-next-btns">
+                      <a class="btn btn-primary-outline" ng-href="{{baseUrl}}#/profile">
+            Edit Your Profile
+          </a>
+                  </div>
+              </div>
+          </div>
+      </li>
+  </ul>
+</div>

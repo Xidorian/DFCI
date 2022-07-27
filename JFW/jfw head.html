@@ -1,0 +1,148 @@
+[[?xjfw_participant_centerx::x[[S334:pagename]]x::
+  [[?[[S50:Cookie]]::frId=::
+    [[U0:trID=[[E130:[[T8:[[S50:Cookie]]]] dup dup "frId=" indexof 5 + swap length substring dup 0 swap ";" indexof substring]]]]
+  ::]]
+::]]
+[[?xxnullx::x[[S42:0:fr-id]]x::::
+  [[U0:trID=[[S42:0:fr-id]]]]
+]]
+[[?x9x::x[[S4]]x::
+  [[?xxnullx::x[[S120:dc:teamRaiserId]]x::::
+    [[U0:trID=[[S120:dc:teamRaiserId]]]]
+  ]]
+::]]
+[[?xxnullx::x[[S334:FR_ID]]x::::
+  [[U0:trID=[[S334:FR_ID]]]]
+]]
+[[?xxnullx::x[[S334:fr_id]]x::::
+  [[U0:trID=[[S334:fr_id]]]]
+]]
+
+<link rel="SHORTCUT ICON" type="image/x-icon" href="https://www.jimmyfund.org/UI_Assets/favicon.ico">
+<link rel="icon" type="image/x-icon" href="https://www.jimmyfund.org/UI_Assets/favicon.ico">
+<link rel="shortcut" type="image/x-icon" href="https://www.jimmyfund.org/UI_Assets/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta property="fb:pages" content="21506845769" />
+<meta property="fb:pages" content="174158125951328" />
+<meta property="fb:pages" content="178906505477922" />
+<meta property="fb:pages" content="30842777936" />
+
+<!-- call to conditional social PageBuilder -->
+[[S51:reus_jfw_social]]
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox[[?xtruex::x[[S80:debug]]x::::.min]].css">
+<link rel="stylesheet" href="../assets/master-teamraiser/css/master-styles.css">
+<link rel="stylesheet" href="../assets/jfw/css/styles.css">
+[[?xTRUEx::x[[E151:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_style_overrides]]x::
+  <!-- event-specific reusable exists -->
+  [[E51:reus_jfw_[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_style_overrides]]
+::
+  <!-- no event-specific reusable exists, use default -->
+  [[S51:reus_jfw_default_style_overrides]]
+]]
+
+<script src="https://use.fontawesome.com/ac43c2a4c5.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery[[?xtruex::x[[S80:debug]]x::::.min]].js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/luminateExtend/1.7.1/luminateExtend[[?xtruex::x[[S80:debug]]x::::.min]].js"></script>
+<script>
+  luminateExtend({
+    apiKey: '[[S0:CONVIO_API_KEY]]',
+    path: {
+      nonsecure: 'http://[[S29:DOMAIN]][[S29:PATH]]',
+      secure: 'https://[[S29:SECURE_DOMAIN]][[S29:SECURE_PATH]]'
+    }
+  });
+</script>
+[[S51:reus_google_translate_script]]
+
+[[?x83x::x[[S4]]x::
+  <!-- CSS for Unsubscribe page -->
+  [[S51:reus_user_email_prefs_css]]
+  [[S51:reus_user_email_prefs_js]]
+::]]
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox[[?xtruex::x[[S80:debug]]x::::.min]].js"></script>
+
+[[?x9x::x[[S4]]x::
+<!-- logic for donation form - should go before scripts -->
+[[S51:reus_donation_form_js]]
+[[S51:reus_universal_donation_form_js]]
+::]]
+
+<script src="../assets/master-teamraiser/js/master-scripts.js?test=[[S55:0,999,3]]" type="text/javascript"></script>
+<script src="../assets/jfw/js/scripts.js?test=[[S55:0,999,3]]" type="text/javascript"></script>
+
+[[?xTRUEx::x[[E151:[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_additional_scripts]]x::
+  <!-- event-specific reusable exists -->
+  [[E51:reus_jfw_[[?xx::x[[S334:fr_id]]x::[[S80:trID]]::[[S334:fr_id]]]]_additional_scripts]]
+::
+  <!-- no event-specific reusable exists, use default -->
+  [[S51:reus_jfw_default_additional_scripts]]
+]]
+
+[[?xjfw_participant_centerxjfw_participant_center_facebookx::x[[S334:pagename]]x::
+  [[E84:angular-teamraiser-participant-center/dist/html/head.html]]
+::]]
+
+[[?xx::x[[S1:cons_id]]x::::
+  <!-- logged in -->
+  [[?
+    [[?xpersonalx[[S1:cons_id]]x::x[[S334:pg]]x[[S334:px]]x::T::]]
+    [[?xteamx[[E48:[[S334:fr_id]]-[[S1:cons_id]]:team-id]]xTRUEx::x[[S334:pg]]x[[S334:team_id]]x[[E48:[[S334:fr_id]]-[[S1:cons_id]]:if-is-captain]]x::T::]]
+  ::T::
+    <!-- viewing own page -->
+    [[?xtruex::x[[S80:hasSecureSession]]x::::
+      <style>
+        body {
+          display: none;
+        }
+      </style>
+      <script>
+        window.location = '[[T7:https://[[S29:SECURE_DOMAIN]][[S29:SECURE_PATH]]EstablishSession?NEXTURL=[[T1:[[E130:[[T8:[[S8]]]] [[T8:&amp;]] [[T8:&]] replaceall]]&s_hasSecureSession=true]]&s_hasSecureSession=true]]';
+      </script>
+      <noscript>
+        <meta http-equiv="refresh" content="0;url=[[T7:https://[[S29:SECURE_DOMAIN]][[S29:SECURE_PATH]]EstablishSession?NEXTURL=[[T1:[[E130:[[T8:[[S8]]]] [[T8:&amp;]] [[T8:&]] replaceall]]&s_hasSecureSession=true]]&s_hasSecureSession=true]]">
+      </noscript>
+    ]]
+    [[E84:teamraiser-inline-page-edit/dist/html/head.html]]
+  ::]]
+]]
+
+<!-- commenting out so that login popup will work - pc 7/11/2018 -->
+<!--
+[[?x19x23x::x[[S4]]x:: -->
+  <!-- pagebuilder -->
+  <!--
+  [[?
+    [[?xjfw_participant_centerx::x[[S334:pagename]]x::
+      [[?xx::x[[S1:cons_id]]x::T::]]
+    ::]]
+  ::T::
+    <style>
+      body {
+        display: none;
+      }
+    </style>
+    [[?xjfw_participant_centerx::x[[S334:pagename]]x::
+      <script>
+        window.location = 'https://[[S29:SECURE_DOMAIN]][[S29:SECURE_PATH]]UserLogin?NEXTURL=[[T1:TRC?fr_id=[[S80:trID]]]]';
+      </script>
+      <noscript>
+        <meta http-equiv="refresh" content="0;url=https://[[S29:SECURE_DOMAIN]][[S29:SECURE_PATH]]UserLogin?NEXTURL=[[T1:TRC?fr_id=[[S80:trID]]]]">
+      </noscript>
+    ::]]
+  ::]]
+::]] -->
+
+[[?xjfw_loginx::x[[S334:pagename]]x::
+  [[?xx::x[[S1:user_name]]x::::
+    <meta http-equiv="refresh" content="0;URL='[[?xx::x[[S334:NEXTURL]]x::[[?xnewx::x[[S334:fr_tm_opt]]x::http://[[S29:DOMAIN]][[S29:PATH]]TRR?pg=tfind&fr_id=[[S80:trID]]&fr_tm_opt=new&s_fr_tm_opt=new&skip_login_page=true::]][[?xexistingx::x[[S334:fr_tm_opt]]x::http://[[S29:DOMAIN]][[S29:PATH]]TRR?pg=tfind&fr_id=[[S80:trID]]&fr_tm_opt=existing&s_fr_tm_opt=existing[[?x[[S334:fr_tjoin]]x::xx::::&fr_tjoin=[[S334:fr_tjoin]]&s_fr_tjoin=[[S334:fr_tjoin]][[?x[[S334:px]]x::xx::::&px=[[S334:px]]&s_px=[[S334:px]]]]]]&skip_login_page=true::]][[?xnonex::x[[S334:fr_tm_opt]]x::http://[[S29:DOMAIN]][[S29:PATH]]TRR?pg=tfind&fr_id=[[S80:trID]]&fr_tm_opt=none&s_fr_tm_opt=none&skip_login_page=true::]][[?xx::x[[S334:fr_tm_opt]]x::http://[[S29:DOMAIN]][[S29:PATH]]TR?fr_id=[[S80:trID]]&pg=entry::]]::[[E130:[[T5:[[S334:NEXTURL]]]] http://[[S29:DOMAIN]][[S29:PATH]] "" replaceall]]]]'" />
+  ]]
+
+::]]
+
+<script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=5a4d43f9143ec50013e057df&product=custom-share-buttons"></script>
+
+[[?x26x::[[S4]]::[[S51:reus_tr_fundraising]]::]]

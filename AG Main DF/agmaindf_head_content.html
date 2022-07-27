@@ -1,0 +1,642 @@
+<link rel="SHORTCUT ICON" type="image/x-icon" href="https://www.dana-farber.org/favicon.ico">
+<link rel="icon" type="image/x-icon" href="https://www.dana-farber.org/favicon.ico">
+<link rel="shortcut" type="image/x-icon" href="https://www.dana-farber.org/favicon.ico">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta property="fb:pages" content="21506845769" />
+<meta property="fb:pages" content="174158125951328" />
+<meta property="fb:pages" content="178906505477922" />
+<meta property="fb:pages" content="30842777936" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css">
+<link rel="stylesheet" href="../assets/master-calendarevent/css/master-styles.css">
+<link rel="stylesheet" href="../assets/agmainjf/css/agmainjf_styles.css">
+
+<script>
+(function (d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=411054489023292";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+<script src="https://use.fontawesome.com/ac43c2a4c5.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+
+
+C:\Users\Alexander\Documents\GitHub\Zuri
+
+
+[[S51:reus_google_translate_script]]
+
+
+
+
+
+<!-- logic for donation form - should go before scripts -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script>
+        jQuery(document).ready(function($){
+            // DOM adjustments
+            $('.donation-form-banner-container').parent().addClass('donation-form-banner-container-wrapper');
+            $('.donation-level-amount-container').each(function () {
+                var $item = $(this);
+                $item.text($.trim($item.text()).replace('.00', ''));
+            });
+            $('.donation-form-section-header').closest('.form-row').css('clear', 'both');
+
+            //relabel expiry fields
+            $("label[for='ccExp_MONTH']").text('Exp Month');
+            $("label[for='ccExp_YEAR']").text('Exp Year');
+
+            $('#ProcessForm').before($('.donation_form_masthead').parent().attr('class','container'));
+
+            if($('.donation-levels-gift-link').length) {
+                $('#level_flexible_row.form-donation-level,#level_standard_row.form-donation-level').after($('.donation-levels-gift-link'));
+            }
+            $('label[for="responsive_payment_typecc_numbername"], label[for="responsive_payment_typecc_exp_date_MONTH"], label[for="responsive_payment_typecc_cvvname"]').each(function() {
+                if($(this).find('.FormLabelText,.label-text').length) {
+                    $(this).find('.FormLabelText,.label-text').text($(this).find('.FormLabelText,.label-text').text().replace(/\:/g,''));
+                } else {
+                    $(this).text($(this).text().replace(/\:/g,' '));
+                }
+            });
+
+            // Checkboxes
+            $('label[for="tribute_show_honor_fieldsname"]').wrap('<div class="form-input-label-block"></div>');
+            $('label[for="tribute_show_honor_fieldsname"]').closest('.form-input-label-block').after('<fieldset></fieldset>');
+            $('label[for="tribute_show_honor_fieldsname"]').closest('.form-input-label-block').siblings('fieldset').append($('#tribute_show_honor_fieldsname')).append('<label class="custom-element-checkbox-label"></label>');
+            $('#ProcessForm input[type="checkbox"]')
+                .wrap('<label class="check-box-container"><span class="check-box"></span></label>')
+                .after('<span class="cr"><i class="cr-icon fa fa-check"></i></span>');
+            $('label[for="additional_donor_dropdown"]').attr('for','additional_donor_radio');
+            $('label[for="included_in_will__dropdown"]').attr('for','included_in_will__radio');
+            $('label[for="info_about_dfci_will__dropdown"]').attr('for','info_about_dfci_will__radio');
+            $('label[for="my_employer_matches_gifts_dropdown"]').attr('for','my_employer_matches_gifts_radio');
+            $('.custom-element-checkbox-label').closest('.form-row').addClass('custom-field-container--checkbox');
+
+            //Error Messages
+            if($('.form-row .ErrorMessage').length) {
+                $('input,select,textarea').closest('.form-row').filter(':not(.custom-field-container--checkbox)').each(function() {
+                    if($(this).find('.ErrorMessage').length == 0) {
+                        $(this).prepend('<div class="ErrorMessage">&nbsp;</div>');
+                    }
+                })
+            }
+
+            // Switch element ids for country change js logic from scripts.js
+            $('#billing_addr_cityname').prop('id', 'cons_city').addClass('cons_city billing--region-address-field');
+            $('#billing_addr_state').prop('id', 'cons_state').addClass('cons_state billing--region-address-field');
+            $('#billing_addr_country').prop('id', 'cons_country').addClass('cons_country billing--region-address-field');
+            $('#billing_addr_zipname').prop('id', 'cons_zip_code').addClass('cons_zip_code').data('toggle-fields', 'billing--region-address-field');
+
+            $('#donor_addr_cityname').addClass('cons_city donor--region-address-field');
+            $('#donor_addr_state').addClass('cons_state donor--region-address-field');
+            $('#donor_addr_country').addClass('cons_country donor--region-address-field');
+            $('#donor_addr_zipname').addClass('cons_zip_code').data('toggle-fields', 'donor--region-address-field');
+
+            // Placeholders
+            var df_id = document.getElementById('df_id');
+            // if ( !!df_id && (df_id.value == '2112' || df_id.value == '3683')) {
+            if ( !!df_id && (df_id.value == '3683')) {
+              console.log('document OK');
+              $('.donation-level-user-entered input[type="text"]')
+                .prop('placeholder', 'GIFT')
+                .popover({ placement: 'bottom', content: 'Please enter $ amount', trigger: 'focus', animation: false })
+                .on('focus', function() {
+                    $(this).prop('placeholder', '');
+                })
+                .on('blur', function() {
+                    $(this).prop('placeholder', 'GIFT');
+                });
+            } else {
+            $('.donation-level-user-entered input[type="text"]')
+                .prop('placeholder', 'OTHER')
+                .popover({ placement: 'bottom', content: 'Please enter $ amount', trigger: 'focus', animation: false })
+                .on('focus', function() {
+                    $(this).prop('placeholder', '');
+                })
+                .on('blur', function() {
+                    $(this).prop('placeholder', 'OTHER');
+                });
+            }
+
+            $('#billing_title option:first, #cons_state option:first,#joint_donor_title option:first, #tribute_type option:first').text('Select').prop('disabled', true);
+
+            $('#in_honor_of_country_dropdown').addClass('dropdown--skip-default');
+
+            $('.custom-field-container select').filter(':not(.dropdown--skip-default)').each(function() {
+                if($(this).find('option:first').val() !== ""
+                    && !$(this).find('option:first').prop('disabled')
+                    && $(this).find('option[selected]').length === 0) {
+                    $(this).prepend('<option disabled="disabled" value="">Select</option>').val("");
+                }
+            });
+
+            $('div.form-row div.form-content>input[type="text"]').on('keyup', function(){
+              if($(this).val().length > 0) {
+                $(this).css("color", "#58595b");
+              }
+            });
+
+            $('div.form-row div.form-content>textarea').on('keyup', function(){
+              if($(this).val().length > 0) {
+                $(this).css("color", "#58595b");
+              }
+            });
+
+            // Donation total
+            $('.button-container').prepend('<div class="donation-form-total-indicator"></div>');
+            var formatMoney = function(amt, c, d, t) {
+                var n = amt,
+                    c = isNaN(c = Math.abs(c)) ? 2 : c,
+                    d = d == undefined ? "." : d,
+                    t = t == undefined ? "," : t,
+                    s = n < 0 ? "-" : "",
+                    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))),
+                    j = (j = i.length) > 3 ? j % 3 : 0;
+                amt = s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+                return amt.replace(".00", "");
+            };
+            var setDonationTotal = function() {
+                var caption = '',
+                    $activeLevel = $('.donation-levels > .donation-level-container.active');
+                if ($activeLevel.length == 1) {
+                    if ($activeLevel.hasClass('donation-level-container-user-entered')) {
+                        var amt = $('.donation-level-user-entered > input[type="text"]').val();
+                        if (amt && amt != '') {
+                            //console.log(amt);
+                            amt = parseFloat(amt.replace(/\$/g, '').replace(/,/g, ''));
+                            if (amt >= 5) {
+                                caption = 'YOUR TOTAL: $'.concat(formatMoney(amt, 2, '.', ',').toString());
+                            }
+                        }
+                    } else {
+                        caption = 'YOUR TOTAL: '.concat($.trim($activeLevel.find('.donation-level-amount-container').text()));
+                    }
+                }
+                if (caption != '') {
+                    $('.donation-form-total-indicator').text(caption).show();
+                } else {
+                    $('.donation-form-total-indicator').hide();
+                }
+                $('#submit-btn').text(caption);
+            }
+
+            // Donation levels
+            $('input[name="level_flexibleexpanded"], input[name="level_standardexpanded"]').click(function () {
+                $('input[name="level_flexibleexpanded"], input[name="level_standardexpanded"]').closest('.donation-level-container').removeClass('active');
+                var $container = $('input[name="level_flexibleexpanded"]:checked, input[name="level_standardexpanded"]:checked').closest('.donation-level-container');
+                $container.addClass('active');
+                if (false == $container.hasClass('donation-level-container-user-entered')) {
+                    $('.donation-level-user-entered input[type="text"]').val('');
+                }
+                setDonationTotal();
+            });
+            $('.donation-level-user-entered > input[type="text"]').keyup(function() {
+                setDonationTotal();
+            });
+            $('input[name="level_flexibleexpanded"]:checked, input[name="level_standardexpanded"]:checked').closest('.donation-level-container').addClass('active');
+            $('.donation-level-input-container > .donation-level-user-entered').closest('.donation-level-container').addClass('donation-level-container-user-entered');
+            setDonationTotal();
+
+            // Donation Frequency
+            $('#level_flexible_row.form-donation-level').before('<div id="level_frequency_row"><div class="form-content"><span class="FormLabelText">Gift Frequency</span><div class="donation-frequencies"></div></div></div>')
+            $('#level_frequency_row .donation-frequencies').append('<div class="donation-frequency-container"><div class="donation-frequency-input-container"><label data-value="1-"><div class="donation-frequency-amount-container">ONE-TIME</div></label></div></div>')
+            $('#level_flexibleduration optgroup').each(function(index, item) {
+              var frequencyLetter = '', frequency = $(item).attr('label').toUpperCase();
+
+              switch(frequency) {
+                case 'MONTHLY':
+                  frequencyLetter = 'M';
+                break;
+                case 'QUARTERLY':
+                  frequencyLetter = 'Q';
+                break;
+                case 'ANNUALLY':
+                  frequencyLetter = 'Y';
+                break;
+              }
+              $('#level_frequency_row .donation-frequencies').append('<div class="donation-frequency-container"><div class="donation-frequency-input-container"><label data-value="2-'+frequencyLetter+':0"><div class="donation-frequency-amount-container">'+frequency+'</div></label></div></div>');
+            });
+            var setFrequency = function(value) {
+              var valuePieces = value.split('-');
+              switch(valuePieces[0]) {
+                case '2':
+                  $('input[name="level_flexiblegift_type"][value="2"]').prop('checked', true);
+                  $('select[name="level_flexibleduration"]').removeAttr('disabled').val(valuePieces[1]);
+                break;
+                default:
+                  $('input[name="level_flexiblegift_type"][value="1"]').prop('checked', true);
+                  $('select[name="level_flexibleduration"]').prop('disabled', true);
+                break;
+              }
+            };
+            var getFrequency = function() {
+              var dataValue = [$('input[name="level_flexiblegift_type"]:checked').val()];
+              if(dataValue[0] == '2') {
+                if($('select[name="level_flexibleduration"]').val().length == 0) {
+                  $('select[name="level_flexibleduration"] option[value*=":0"]:first').prop('selected',true);
+                }
+                dataValue.push($('select[name="level_flexibleduration"]').val());
+              } else {
+                dataValue.push('');
+              }
+              return dataValue.join('-');
+            }
+            $('.donation-frequency-input-container label').click(function () {
+                $('.donation-frequency-input-container label').closest('.donation-frequency-container').removeClass('active');
+                var $container = $(this).closest('.donation-frequency-container');
+                $container.addClass('active');
+                setFrequency($(this).attr('data-value'));
+            });
+            //console.log(getFrequency(), $('.donation-frequency-input-container label[data-value="'+getFrequency()+'"]'));
+            $('.donation-frequency-input-container label[data-value="'+getFrequency()+'"]').closest('.donation-frequency-container').addClass('active');
+
+            // CVV
+            $('a.HelpLink').replaceWith([
+                '<a tabindex="0" role="button" ',
+                'data-toggle="popover" data-trigger="focus" data-placement="bottom" ',
+                'data-content="<img src=\'../images/content/pagebuilder/cvv-help.jpg\'>">',
+                '<i class="fa fa-info-circle" aria-hidden="true"></i>',
+                '</a>'
+            ].join(''));
+
+            //Honor and Memorial Fields
+            $('#in_honor_of_line_1_input, #in_honor_of_line_2_input, #in_honor_of_line_1_input, #in_honor_of_zip_input, #in_honor_of_country_dropdown, #in_honor_of_city_input, #in_honor_of_state_dropdown').closest('.form-row').each(function() {
+              $(this).attr('id', $(this).find('input[type="text"],select').attr('id').replace('_input', '').replace('_dropdown', ''));
+            });
+            $('#in_honor_address_intro_text, #in_honor_notify_intro_text').closest('.form-row').each(function() {
+              $(this).attr('id', $(this).find('p, h1, h2, h3, h4, h5').attr('id').replace('_text', ''));
+            });
+            $('#tribute_show_honor_fields_row').after('<div class="honor_memorial_field_container"></div>');
+            $('.honor_memorial_field_container').append($('#tribute_type_row, #tribute_honoree_first_name_row, #tribute_honoree_last_name_row, #in_honor_address_intro, #in_honor_of_line_1, #in_honor_of_line_2, #in_honor_of_zip, #in_honor_of_country, #in_honor_of_city, #in_honor_of_state, #in_honor_notify_intro, #tribute_notify_recip_name_row, #tribute_notify_recip_street1_row, #tribute_notify_recip_street2_row, #tribute_notify_recip_zip_row, #tribute_notify_recip_country_row, #tribute_notify_recip_city_row, #tribute_notify_recip_state_row, #tribute_signature_row, #in_honor_gift_note'));
+
+            $('#tribute_notify_recip_cityname').addClass('off--cons_city tribute_notify--region-address-field');
+            $('#tribute_notify_recip_state').addClass('off--cons_state tribute_notify--region-address-field');
+            $('#tribute_notify_recip_country').addClass('cons_country tribute_notify--region-address-field');
+            $('#tribute_notify_recip_zipname').addClass('off--cons_zip_code').data('toggle-fields', 'tribute_notify--region-address-field');
+
+            $('#in_honor_of_city_input').addClass('off--cons_city honoree--region-address-field');
+            $('#in_honor_of_state_dropdown').addClass('off--cons_state honoree--region-address-field');
+            $('#in_honor_of_country_dropdown').addClass('cons_country honoree--region-address-field');
+            $('#in_honor_of_zip_input').addClass('off--cons_zip_code').data('toggle-fields', 'honoree--region-address-field');
+
+            if($('#in_honor_of_state_dropdown option[selected]').length == 0) {
+              $('#in_honor_of_state_dropdown').val('None');
+            }
+
+            var toggleAdditionalHonorFields = function(on) {
+              if(on) {
+                $('.honor_memorial_field_container').show();
+                //$('#in_honor_of_line_1, #in_honor_of_line_2, #in_honor_of_zip, #in_honor_of_country, #in_honor_of_city, #in_honor_of_state, #in_honor_address_intro, #in_honor_notify_intro').show();
+              } else {
+                $('.honor_memorial_field_container').hide();
+                /*$('#in_honor_of_line_1, #in_honor_of_line_2, #in_honor_of_zip, #in_honor_of_country, #in_honor_of_city, #in_honor_of_state, #in_honor_address_intro, #in_honor_notify_intro').hide();*/
+              }
+            }
+            $('#tribute_show_honor_fieldsname').change(function() {
+              toggleAdditionalHonorFields($(this).is(':checked'))
+            }).change();
+
+            // Additional donor
+            $('#additional_donor_title_dropdown, #additional_donor_first_name_input, #additional_donor_last_name_input')
+                .closest('.custom-field-container').addClass('additional-donor-field-container');
+            var toggleAdditionalDonorInfo = function() {
+                if ($('#additional_donor_radio').is(':checked')) {
+                    $('.additional-donor-field-container').show();
+                    $('#joint_donor_title_row').show();
+                    $('#joint_donor_first_name_row').show();
+                    $('#joint_donor_last_name_row').show();
+                } else {
+                    $('.additional-donor-field-container').hide();
+                    $('#joint_donor_title_row').hide();
+                    $('#joint_donor_first_name_row').hide();
+                    $('#joint_donor_last_name_row').hide();
+                }
+            };
+            $('#additional_donor_radio').click(function() {
+                toggleAdditionalDonorInfo();
+            });
+            toggleAdditionalDonorInfo();
+
+            var toggleEmployerSearch = function(on) {
+              if(on) {
+                $('.matching-gift-container').show();
+              } else {
+                $('.matching-gift-container').hide();
+              }
+            };
+            $('#my_employer_matches_gifts_radio').change(function() {
+                toggleEmployerSearch($(this).is(':checked'));
+            }).change();
+
+            // Gift information
+            $('label[for="tr_recognition_namerec_namename"]').after([
+                '<a tabindex="0" role="button" ',
+                'data-toggle="popover" data-trigger="focus" data-placement="bottom" ',
+                'data-content="This text displays on the website in place of the billing name used above. Examples: Joe Smith and Mary Jones in support of John; Joe, Mary, and kids in honor of John; Mom and Dad; etc.">',
+                '<i class="fa fa-info-circle" aria-hidden="true"></i>',
+                '</a>'
+            ].join(''));
+
+            $('div.tr-recognition-name-view, #tr_show_gift_to_public_row, #tr_message_to_participant_row')
+                .addClass('gift-info-field-container');
+            var toggleGiftInfo = function() {
+                if ($('#customize_how_gift_displays_radio').is(':checked')) {
+                    $('.gift-info-field-container').show();
+                } else {
+                    $('.gift-info-field-container').hide();
+                }
+            };
+            $('#customize_how_gift_displays_radio').click(function() {
+                toggleGiftInfo();
+            });
+            toggleGiftInfo();
+            $('#tr_recognition_namerec_name_row').after($('#tr_recognition_nameanonymous_row'));
+
+            //Donor Information Section
+            $('.js-donor-information--header').closest('.form-row').attr('id', 'donor_information_header_row');
+            $('#donor_information_header_row,#donor_title_row,#donor_first_name_row,#donor_last_name_row,#donor_addr_street1_row,#donor_addr_street2_row,#donor_addr_city_row,#donor_addr_state_row,#donor_addr_zip_row,#donor_addr_country_row').addClass('js-donor-information');
+
+            $('#donor_information_header_row,#billing_title_row,#billing_first_name_row,#billing_last_name_row,#billing_addr_street1_row,#billing_addr_street2_row,#billing_addr_zip_row,#billing_addr_country_row').addClass('js-billing-information');
+
+            var $toggleTargets = [[?xtruex::x[[S334:test]]x::$(".js-billing-information")::$(".js-billing-information")]];
+
+            $('#billing_info_same_as_donorname').change(function(ev) {
+                if($(this).is(':checked')) {
+                    $toggleTargets.slideUp().attr('data-hidden', 'true');
+                } else {
+                    $toggleTargets.slideDown().attr('data-hidden', 'false');
+                    if(!$("#cons_zip_code").val()){
+                        $("#cons_zip_code").val($("#donor_addr_zipname").val()).trigger("change")
+                    }
+                }
+            }).trigger('change');
+
+            if($('#donor_first_namename').length) {
+                $('#billing_first_namename').change(function(ev) {
+                    if($('#donor_info_same_as_billingname').is(':checked')) {
+                        $('#donor_first_namename').val($(this).val());
+                    }
+                }).change();
+            }
+            if($('#donor_last_namename').length) {
+                $('#billing_last_namename').change(function(ev) {
+                    if($('#donor_info_same_as_billingname').is(':checked')) {
+                        $('#donor_last_namename').val($(this).val());
+                    }
+                }).change();
+            }
+
+            $("#billing_addr_zip_row").on("change", function(e){
+                $toggleTargets = $toggleTargets.add("#billing_addr_city_row,#billing_addr_state_row");
+            })
+            if($('body').find('.errorMessageContainer').length) {
+                $toggleTargets = $toggleTargets.add("#billing_addr_city_row,#billing_addr_state_row");
+            }
+
+            $("#donor_email_opt_in_Row").appendTo("#donor_email_address_row");
+            $("#donor_email_opt_in_Row,#donor_employer_row").each(function(){
+                var $error = $(this).find(".ErrorMessage");
+                if(!$error.text().trim()){
+                    $error.hide();
+                }
+            })
+
+            // Init popovers
+            var resizeTimer;
+            $(window).resize(function() {
+                if($('.donation-level-user-entered input[type="text"]:focus').length) {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function() {
+                        $('.donation-level-user-entered input[type="text"]:focus').popover('hide').popover('show');
+                    }, 250);
+                }
+            });
+            $('[data-toggle="popover"]').popover({
+                html: true,
+                container: 'body'
+            });
+
+            if($('#ProcessForm .donation-level-user-entered input[type="text"]').length) {
+                $('#ProcessForm .donation-level-user-entered input[type="text"]').val($('#ProcessForm .donation-level-user-entered input[type="text"]').val().replace('$','').replace('.00',''));
+            }
+
+            // Form submit
+            $('#ProcessForm').submit(function() {
+                $('select[name="billing_addr_country"]').removeAttr('disabled');
+                if(!$('#donor_info_same_as_billingname').is(':checked')) {
+                    $('select[name="donor_addr_country"]').removeAttr('disabled');
+                }
+            });
+
+            // Donation Form PayPal Fix
+            $('.payment-type-selections .payment-type-option .payment-type-label').closest('label').each(function() {
+               var replacementElement = $("<span class='payment-type-label'></span>");
+               replacementElement.html($(this).find('.payment-type-label').html());
+               $(this).find('.payment-type-label').replaceWith(replacementElement);
+            });
+        });
+    </script>
+
+    <script>
+    jQuery(document).ready(function($){
+      var $country_selector = $('.cons_country');
+
+      $country_selector.each(function() {
+        $(this).attr('disabled', 'disabled');
+
+        if($(this).attr('disabled') === 'disabled') {
+          var link = $('<a class="change-country" data-name="'+$(this).attr('name')+'">Change Country</a>')
+
+          $(this).after(link);
+        }
+      });
+
+      $('.change-country').on('click', function() {
+        $(this).hide();
+        $('select[name="'+$(this).data('name')+'"]').removeAttr('disabled');
+      });
+
+      function getCityStateByZip($zipcode, callback) {
+        console.log('getCityStateByZip function fired; $zipcode.val(): ' + $zipcode.val());
+        if($zipcode.val()) {
+          $.getJSON('//maps.googleapis.com/maps/api/geocode/json?key=AIzaSyBmzFa0m2bU9ccGLqrdN1nQCWm2r3DmKm4&address=' + $zipcode.val()).success(function(response) {
+              console.log('response.results.length: ' + response.results.length);
+            if(response.results.length) {
+              var city = '',
+                  state = 'None',
+                  address_components = response.results[0].address_components;
+              console.log('address_components: ' + address_components);
+              $.each(address_components, function(index, component){
+                var types = component.types;
+
+                $.each(types, function(index, type){
+                  if(type == 'locality') {
+                    city = component.long_name;
+                  }
+
+                  if(type == 'neighborhood') {
+                    city = component.long_name;
+                  }
+
+                  if(type == 'administrative_area_level_1') {
+                    state = component.short_name;
+                  }
+
+                  if(type == 'country' && component.short_name.toLowerCase() != 'us') {
+                    state = 'None';
+                  }
+                });
+              });
+
+              callback($zipcode, city, state);
+            } else {
+              $('.cons_state.'+$zipcode.data('toggle-fields')).val('None');
+              //$('#cons_state').val('None');
+
+              $('.cons_state.'+$zipcode.data('toggle-fields')).closest('.form-row').show();
+              $('.cons_city.'+$zipcode.data('toggle-fields')).closest('.form-row').show();
+              //$('#cons_state').parent().parent().parent().parent().removeClass('hide');
+              //$('#cons_city').parent().parent().parent().parent().removeClass('hide');
+            }
+          });
+        }
+      }
+
+      function showCityStateForBilling($zipcode, city, state) {
+        $('.cons_city.'+$zipcode.data('toggle-fields')).val(city).closest('.form-row').show();
+        //$('#s_cons_city').val(city);
+        //$('#billing_addr_city_row').show();
+        //$('#billing_addr_city_row').css('display', 'inline');
+
+        $('.cons_state.'+$zipcode.data('toggle-fields')).val(state).closest('.form-row').show();
+        //$('#s_cons_state').val(state);
+        //$('#billing_addr_state_row').show();
+        //$('#billing_addr_state_row').css('display', 'inline');
+
+        //$('#cons_state').parent().parent().parent().parent().removeClass('hide');
+        //$('#cons_city').parent().parent().parent().parent().removeClass('hide');
+      }
+
+      function showCityStateForDonor($zipcode, city, state) {
+        $("#donor_addr_cityname").val(city).closest('.form-row').show();
+        $("#donor_addr_state").val(state).closest('.form-row').show();
+      }
+
+      var $bill_zip_input = $('.cons_zip_code');
+      var $donor_zip_input = $('#donor_addr_zipname');
+
+      $bill_zip_input.on('keyup change', function() {
+        if($('.cons_country.'+$(this).data('toggle-fields')).val() == 'United States' && $(this).val().length > 4) {
+          getCityStateByZip($(this), showCityStateForBilling);
+        }
+      });
+      $donor_zip_input.on('keyup change', function() {
+        if($("#donor_addr_country").val() == 'United States' && $(this).val().length > 4) {
+          getCityStateByZip($(this), showCityStateForDonor);
+        }
+      });
+      /*keyup(function() {
+        if($country_selector.val() == 'United States' && $(this).val().length > 4) {
+          getCityStateByZip($(this).val(), showCityStateForBilling);
+        }
+      });
+      $bill_zip_input.keydown(function() {
+        if($country_selector.val() == 'United States' && $(this).val().length > 4) {
+          getCityStateByZip($(this).val(), showCityStateForBilling);
+        }
+      });
+      $bill_zip_input.change(function() {
+        if($country_selector.val() == 'United States' && $(this).val().length > 4) {
+          getCityStateByZip($(this).val(), showCityStateForBilling);
+        }
+      });
+      $bill_zip_input.blur(function() {
+        getCityStateByZip($(this).val(), showCityStateForBilling);
+        if($country_selector.val() == 'United States' && $(this).val().length > 4) {
+          getCityStateByZip($(this).val(), showCityStateForBilling);
+        }
+      });*/
+
+      /*$('#cons_country').on('change', function() {
+        if($('#cons_country').val() !== 'United States') {
+          //$('#billing_addr_city_row').css('display', 'inline-block');
+          //$('#billing_addr_state_row').css('display', 'inline-block');
+        }
+      });*/
+
+      if($('body').find('.errorMessageContainer').length) {
+        // $('.cons_state,.cons_city').closest('.form-row').show();
+        //$('#billing_addr_state_row').show();
+      }
+
+        /**
+         * If the donation form expiry date is Luminate's default (current month and year),
+         * set it to a placeholder value instead
+         */
+        var date = new Date();
+        var $month = $("#responsive_payment_typecc_exp_date_MONTH")
+          .prepend('<option value="">Month</option>');
+        var $year = $("#responsive_payment_typecc_exp_date_YEAR")
+          .prepend('<option value="">Year</option>');
+
+        if(
+          parseInt($month.val()) === date.getMonth() + 1
+          && parseInt($year.val()) === date.getFullYear()
+          ){
+          $month
+            .find("option:eq(0)")
+            .prop("selected", true);
+          $year
+            .find("option:eq(0)")
+            .prop("selected", true);
+        }
+    });
+    </script>
+
+<!-- script type="text/javascript">
+    var currentURL = window.location.href;
+
+
+</script-->
+
+<!--script type="text/javascript">
+Y.use('jquery-noconflict', function() {
+  jQuery(document).ready(function($) {
+
+    $('.footer-share-link').on('click', function() {
+      console.log('hit');
+
+      console.log('this', $(this));
+
+      if($(this).hasClass('share-open')) {
+        $(this).removeClass('share-open');
+
+        $('.footer-share-container').hide();
+      } else {
+        $(this).addClass('share-open');
+        $('.footer-share-container').show();
+      }
+    });
+
+    var share_close_btn = $('.footer-share-container button.close');
+
+    $(share_close_btn).on('click', function() {
+      if($('.footer-share-link').hasClass('share-open')) {
+        $('.footer-share-link').removeClass('share-open');
+
+        $('.footer-share-container').hide();
+      }
+    });
+
+    $('#don_timeout_retry_link a').contents().unwrap();
+  });
+});
+
+</script-->
+[[?x26x::[[S4]]::[[S51:reus_tr_fundraising]]::]]

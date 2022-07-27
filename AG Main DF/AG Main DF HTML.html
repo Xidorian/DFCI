@@ -1,0 +1,88 @@
+<div class="header-container container" role="banner">
+  <div class="logo">
+    <a href="http://www.dana-farber.org/?_ga=2.107049346.1293306461.1540353858-2018205714.1539844356">
+      <!-- <img src="../images/content/pagebuilder/img-logo-2x.png" alt="Dana-Farber Cancer Institute" width="330"> -->
+      <img src="../images/content/pagebuilder/df_logo_agforms_115.png" alt="Dana-Farber Cancer Institute">
+    </a>
+  </div>
+
+  <div class="headerRight">
+
+
+    <div class="google-translate-container">
+      <div id="google_translate_element"></div>
+      <a role="button" data-toggle="collapse" href="#googleExplanation" aria-expanded="false" aria-controls="googleExplanation">
+        <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+        <span class="sr-only">Read disclaimer about translations</span>
+      </a>
+      <div class="google-inner">
+        <div class="collapse" id="googleExplanation">
+          <p style="font-family: &quot;Fira Sans&quot;, sans-serif;">Please note that some translations using Google Translate may not be accurately represented and downloaded documents cannot be translated. Dana-Farber and the Jimmy Fund assume no liability for inaccuracies that may result from using this third-party tool, which is for website translation and not clinical interactions.</p>
+        </div>
+      </div>
+    </div>
+    <!-- /google_translate_element -->
+
+
+    <div class="container">
+      <ul>
+        <li class="menuItem">
+          <a href="https://www.dana-farber.org/about-us/">About Us</a>
+        </li>
+        <li class="menuItem">
+          <a href="https://www.dana-farber.org/contact-us/">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+[[S63:3]]
+
+<div class="footer-container container">
+  <div class="footer-top-container">
+    <div class="footerLogo">
+      <!-- <img src="../images/content/pagebuilder/img-footer-logo-2x.png" alt="Dana-Farber Cancer Institute"> -->
+      <img src="../images/content/pagebuilder/df_logo_agmaindffooter_103.png " alt="Dana-Farber Cancer Institute">
+    </div>
+    <div class="footer-contact">
+      <div class="footer-address">
+        450 Brookline Avenue
+        <br />
+        Boston, MA 02215
+        <br />
+      </div>
+      <br />
+      <div class="footer-copyright">
+        <a href="http://www.dana-farber.org/privacy-policy/">Privacy Policy</a> | <a href="http://www.dana-farber.org/legal-statements/">Legal Statements</a>
+        <br />Copyright [[S9:pattern:yyyy]] Dana-Farber Cancer Institute
+      </div>
+    </div>
+    <div class="clearfix"></div>
+
+  </div>
+</div>
+
+<!-- look for URL match on "Ticketing"-->
+[[?[[S8]]::Ticketing::
+<!-- Calendar event - call reus_third_party_cal_event_js-->[[S51:reus_third_party_cal_event_js]]::
+<!-- URL does not contain "Ticketing"-->]]
+
+<!-- look for URL match on "Donation">-->
+[[?[[S8]]::Donation::[[?xx::x[[S334:df_id]]x:: 
+<!-- Calendar event - call reus_third_party_cal_event_js-->[[S51:reus_third_party_cal_event_js]]::
+<!--URL contains df_id-->]]::
+<!-- URL does not contain "Donation"-->]]
+
+<!-- Workaround for Donation Form "Other" issue introduced by Blackbaud release  -->
+<script type="text/javascript">
+  jQuery(document).ready(function() {
+
+    jQuery('.donation-level-user-entered').contents().filter(function() {
+      return this.nodeType === 3 && this.nodeValue.length > 1;
+    }).remove();
+
+  });
+
+</script>

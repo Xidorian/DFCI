@@ -1,0 +1,183 @@
+<div class="clearfix">
+  <div class="ng-pc-event-distance">
+    <div class="ng-pc-event-distance-inner">
+      <div class="ng-pc-event-distance-text" ng-if="participationTypeName !== 'Volunteer'">
+        <div class="ng-pc-event-distance-text-smaller">
+          Virtual
+          <br> Walker
+        </div>
+      </div>
+      <div class="ng-pc-event-distance-text" ng-if="participationTypeName == 'Volunteer'">
+        <div class="ng-pc-event-distance-text-smaller" style="font-size:15px">
+          Volunteer
+          <br> Fundraiser
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ng-pc-event-details">
+    <div ng-if="participationTypeName == 'Virtual Walker Adult'|| participationTypeName == 'Virtual Walker Youth'|| participationTypeName == 'Admin Registered - Virtual Adult'|| participationTypeName == 'Admin Registered - Virtual Youth'|| participationTypeName == 'Volunteer'">
+      <div class="clearfix">
+        <div class="ng-pc-event-date-location">
+          <div class="ng-pc-event-date">
+            <h2>
+              Walk Day
+            </h2>
+            <p>
+              {{eventInfo.event_date | date : 'EEEE, MMM. d, y'}}
+            </p>
+            <p>
+              <a ng-href="PageServer?pagename=jfw_faqs_cancer&fr_id=[[S80:trID]]" target="_blank">FAQ</a> | <a uib-popover-template="'SPageServer?pagename=add_to_calendar_popover&pgwrap=n&fr_id=[[S80:trID]]'" popover-placement="top" popover-trigger="'outsideClick'">Add to Calendar</a>
+            </p>
+          </div>
+        </div>
+        <div class="ng-pc-event-team-company">
+          <div>
+            <h2>
+              Participant's ID
+            </h2>
+            <p>
+              [[S1:cons_id]]
+            </p>
+            <br>
+          </div>
+          <div class="ng-pc-event-team" ng-if="participantRegistration.teamId && participantRegistration.teamId != '-1'">
+            <h2>
+              My Team
+            </h2>
+            <p>
+              <a ng-href="TR?fr_id={{frId}}&amp;pg=team&amp;team_id={{participantRegistration.teamId}}">
+                <span ng-bind-html="teamInfo.name"></span>
+              </a>
+            </p>
+            <p>
+              <a csv-header="teamRosterDownload.headers" ng-csv="teamRosterDownload.data" filename="Team_Roster.csv">Download Team Roster</a>
+            </p>
+          </div>
+          <div class="ng-pc-event-company" ng-if="participantRegistration.companyInformation && participantRegistration.companyInformation.companyId && participantRegistration.companyInformation.companyId != '-1'">
+            <h2>
+              My Group
+            </h2>
+            <p>
+              <a ng-href="TR?fr_id={{frId}}&amp;pg=company&amp;company_id={{participantRegistration.companyInformation.companyId}}">
+                <!--<span ng-bind-html="companyInfo.companyName"></span>-->[[S48:1160:company-name]]
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div ng-if="participationTypeName != 'Virtual Walker Adult' && participationTypeName != 'Virtual Walker Youth' && participationTypeName != 'Admin Registered - Virtual Adult' && participationTypeName != 'Admin Registered - Virtual Youth' && participationTypeName != 'Volunteer'">
+      <div class="clearfix">
+        <div class="ng-pc-event-date-location">
+          <div class="ng-pc-event-date">
+            <h2>
+              Walk Day
+            </h2>
+            <p>
+              {{eventInfo.event_date | date : 'EEEE, MMM. d, y'}}
+            </p>
+            <p>
+              <a ng-href="http://danafarber.jimmyfund.org/site/DocServer/Jimmy_Fund_Walk_Your_Way_FAQ.pdf?docID=3866" target="_blank">FAQ</a> |
+              <a uib-popover-template="'SPageServer?pagename=add_to_calendar_popover&pgwrap=n&fr_id=[[S80:trID]]'" popover-placement="top" popover-trigger="'outsideClick'">Add to Calendar</a>
+            </p>
+          </div>
+          <!-- <div class="ng-pc-event-location">
+                        <h2>My Route</h2>
+                        <div ng-if="programInfo.ROUTE_SELECTED == 'Marathon (26.2 miles)'">
+                            <p>
+                                Starting Line: Hopkinton
+                            </p>
+                            <p>
+                                Rolling Start Time: 5:30-7:30 a.m.
+                            </p>
+                            <p>
+                                <a ng-href="DocServer/26-2Mile_RouteMap.pdf?docID=127" target="_blank">Route Map</a> | <a ng-href="{{baseUrl}}#/profile/questions">Update Selected Route</a>
+                            </p>
+                            <p>
+                                <a ng-href="PageServer?pagename=jfw_faqs_cancer&fr_id=[[S80:trID]]" target="_blank">FAQ</a> | <a ng-href="DocServer/26-2Mile_TrainingGuide.pdf?docID=128" target="_blank">Route Training Resource Guide</a>
+                            </p>
+                        </div>
+                        <div ng-if="programInfo.ROUTE_SELECTED == 'Half Marathon (13.1 miles)'">
+                            <p>
+                                Starting Line: Wellesley
+                            </p>
+                            <p>
+                                Rolling Start Time: 8:30-10:30 a.m.
+                            </p>
+                            <p>
+                                <a ng-href="DocServer/13-1Mile_RouteMap.pdf?docID=125" target="_blank">Route Map</a> | <a ng-href="{{baseUrl}}#/profile/questions">Update Selected Route</a>
+                            </p>
+                            <p>
+                                <a ng-href="PageServer?pagename=jfw_faqs_cancer&fr_id=[[S80:trID]]" target="_blank">FAQ</a> | <a ng-href="DocServer/13-1Mile_TrainingGuide.pdf?docID=126" target="_blank">Route Training Resource Guide</a>
+                            </p>
+                        </div>
+                        <div ng-if="programInfo.ROUTE_SELECTED == '10K (6.2 miles)'">
+                            <p>
+                                Starting Line: Newton
+                            </p>
+                            <p>
+                                Rolling Start Time: 10 a.m.-12 p.m.
+                            </p>
+                            <p>
+                                <a ng-href="DocServer/10K_RouteMap.pdf?docID=123" target="_blank">Route Map</a> | <a ng-href="{{baseUrl}}#/profile/questions">Update Selected Route</a>
+                            </p>
+                            <p>
+                                <a ng-href="PageServer?pagename=jfw_faqs_cancer&fr_id=[[S80:trID]]" target="_blank">FAQ</a> | <a ng-href="DocServer/10K_TrainingGuide.pdf?docID=124" target="_blank">Route Training Resource Guide</a>
+                            </p>
+                        </div>
+                        <div ng-if="programInfo.ROUTE_SELECTED == '5K (3.1 miles)'">
+                            <p>
+                                Starting Line: Dana-Farber Cancer Institute
+                            </p>
+                            <p>
+                                Start Time: 1:45 p.m.
+                            </p>
+                            <p>
+                                <a ng-href="DocServer/5K_RouteMap.pdf?docID=121" target="_blank">Route Map </a> | <a ng-href="{{baseUrl}}#/profile/questions">Update Selected Route</a>
+                            </p>
+                            <p>
+                                <a ng-href="PageServer?pagename=jfw_faqs_cancer&fr_id=[[S80:trID]]" target="_blank">FAQ</a> | <a ng-href="DocServer/5K_TrainingGuide.pdf?docID=122" target="_blank">Route Training Resource Guide</a>
+                            </p>
+                        </div>
+                    </div> -->
+          <br>
+        </div>
+        <div class="ng-pc-event-team-company">
+          <div>
+            <h2>
+              Participant's ID
+            </h2>
+            <p>
+              [[S1:cons_id]]
+            </p>
+            <br>
+          </div>
+          <div class="ng-pc-event-team" ng-if="participantRegistration.teamId && participantRegistration.teamId != '-1'">
+            <h2>
+              My Team
+            </h2>
+            <p>
+              <a ng-href="TR?fr_id={{frId}}&amp;pg=team&amp;team_id={{participantRegistration.teamId}}">
+                <span ng-bind-html="teamInfo.name"></span>
+              </a>
+            </p>
+            <p>
+              <a csv-header="teamRosterDownload.headers" ng-csv="teamRosterDownload.data" filename="Team_Roster.csv">Download Team Roster</a>
+            </p>
+          </div>
+          <div class="ng-pc-event-company" ng-if="participantRegistration.companyInformation && participantRegistration.companyInformation.companyId && participantRegistration.companyInformation.companyId != '-1'">
+            <h2>
+              My Group
+            </h2>
+            <p>
+              <a ng-href="TR?fr_id={{frId}}&amp;pg=company&amp;company_id={{participantRegistration.companyInformation.companyId}}">
+                <!--<span ng-bind-html="companyInfo.companyName"></span>-->[[S48:1160:company-name]]
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
